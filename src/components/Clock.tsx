@@ -20,6 +20,7 @@ export class Clock extends Component<ClockProps, ClockState> {
     this.intervalId = window.setInterval(() => {
       const updatedTime = new Date().toUTCString().slice(-12, -4);
       this.setState({ time: updatedTime });
+      // eslint-disable-next-line no-console
       console.log(updatedTime);
     }, 1000);
   }
