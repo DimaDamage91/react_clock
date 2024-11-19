@@ -33,6 +33,7 @@ export class Clock extends Component<ClockProps, ClockState> {
 
   componentDidUpdate(prevProps: ClockProps) {
     if (prevProps.clockName !== this.props.clockName) {
+      // eslint-disable-next-line no-console
       console.warn(`Renamed from ${prevProps.clockName} to ${this.props.clockName}`);
     }
   }
