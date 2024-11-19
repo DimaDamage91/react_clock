@@ -11,7 +11,7 @@ interface ClockState {
 
 export class Clock extends Component<ClockProps, ClockState> {
   state = {
-    time: this.props.today.toUTCString().slice(-12, -4),
+    time: new Date().toUTCString().slice(-12, -4),
   };
 
   intervalId: number | undefined;
@@ -20,7 +20,7 @@ export class Clock extends Component<ClockProps, ClockState> {
     this.intervalId = window.setInterval(() => {
       const updatedTime = new Date().toUTCString().slice(-12, -4);
       this.setState({ time: updatedTime });
-      console.log('Time updated:', updatedTime);  // Логування після оновлення
+      console.log(updatedTime);
     }, 1000);
   }
 
@@ -39,8 +39,6 @@ export class Clock extends Component<ClockProps, ClockState> {
   render() {
     const { clockName } = this.props;
     const { time } = this.state;
-
-    console.log('Rendering Clock component...');
 
     return (
       <div className="Clock">
